@@ -5,7 +5,9 @@ import hackbee.dao.HackbeeDAO;
 import hackbee.exceptions.DaoException;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -33,18 +35,16 @@ public class ServletController extends HttpServlet {
 		HackbeeDAO dao = new HackBeeDAOImpl();
 		if (uri.endsWith("addInterests.action")) {
 			String userid = request.getParameter("user");
-			List<String> interests = new ArrayList<String>();
-			dao.addInterests(userid, interests);
+			String[] interests = request.getParameterValues("interestCheckbox");
+			//TODO Add Interests
+			dao.addInterests(userid, Arrays.asList(interests));
 			
 			target = "WEB-INF/jsp/addAssessment.jsp";
 
-		} else if (uri.endsWith("addScoresForm.action")) {
+		} else if (uri.endsWith("getEvents.action")) {
 
-			// request.setAttribute("assessments",
-			// assessmentManagerService.getAllAssessments());
-			// request.setAttribute("campusMinds",
-			// assessmentManagerService.getAllCampusMinds());
-
+			String userid = request.getParameter("user");
+			
 			target = "WEB-INF/jsp/addScores.jsp";
 
 		}
