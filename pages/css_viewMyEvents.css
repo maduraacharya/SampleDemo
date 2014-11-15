@@ -12,7 +12,7 @@ overflow: hidden;
 
  display: block;
   padding: 1em;
-  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(97,86,138,0.65) 100%);
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(18,123,121,0.65) 100%);
   color: black;
   font-size: 1.2em;
   text-decoration: none;
@@ -24,7 +24,7 @@ padding:2px;
 }
 
 .innerBox {
-width:40%;
+width:20%;
 padding:10px;
 
 }
