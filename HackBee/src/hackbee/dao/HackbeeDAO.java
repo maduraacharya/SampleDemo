@@ -8,4 +8,6 @@ public interface HackbeeDAO {
 
 	public void addInterests(String userid,List<String> userInterests) throws DaoException;
 
+	public void getSuggestions() throws DaoException;
+	
 }

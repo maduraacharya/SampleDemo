@@ -1,5 +1,14 @@
 package hackbee.controllers;
 
-public class Event {
+public class Event extends TimerTask{
 
+	public void run(){
+		scheduleSuggestAndEmail();
+	}
+	
+	private void scheduleSuggestAndEmail(){
+		
+		
+		
+	}
 }
