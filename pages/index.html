@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-
+<html>
 <head>
 <title>HackaBee</title>
-<link href="css_index.css.css" type="text/css" rel="stylesheet"></head>
+<link href="css_index.css" type="text/css" rel="stylesheet">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+
+$("#navigation").animate({left:'250px'});
+  });
+});
+</script>
+
+</head>
 
 <body>
+<div id="navigation">
 <ul class="right-menu">
 <li class="menuItem"><a href="addInterest.html"> Add Interest </a></li>
 <li class="menuItem"><a href="viewAllEvents.html">All Events</a></li>
@@ -12,10 +26,14 @@
 <li class="menuItem"><a href="suggestAppToFriend.html"”>Suggest App to Friends</a></li>
 <li class="menuItem"><a href="logout.html">Logout</a></li>
 </ul>
+</div>
 
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger"></label>
 
+<div class="display-area">
+<h1>This will be our header</h1>
+</div>
 </body>
 
 </html>
