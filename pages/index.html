@@ -4,8 +4,10 @@
 <title>HackaBee</title>
 <link href="css_index.css" type="text/css" rel="stylesheet">
 
+/* adding js framework*/
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+/*adding javascript to animate right-bar*/
 <script>
 $(document).ready(function(){
   $("button").click(function(){
@@ -15,16 +17,50 @@ $("#navigation").animate({left:'250px'});
 });
 </script>
 
+/**/
+<script>
+$(document).ready(function(){
+  $("a.interest").click(function(){
+    $.ajax({url:"interests.html",async:false,success:function(result){
+      $("div.display-area").html(result);
+    }});
+  });
+
+ $("a.all-events").click(function(){
+    $.ajax({url:"viewAllEvents.html",async:false,success:function(result){
+      $("div.display-area").html(result);
+    }});
+  });
+
+ $("a.my-events").click(function(){
+    $.ajax({url:"viewMyEvents.html",async:false,success:function(result){
+      $("div.display-area").html(result);
+    }});
+  });
+
+ $("a.suggest").click(function(){
+    $.ajax({url:"suggestAppToFriend.html",async:false,success:function(result){
+      $("div.display-area").html(result);
+    }});
+  });
+
+ $("a.logout").click(function(){
+    $.ajax({url:"logout.html",async:false,success:function(result){
+      $("div.display-area").html(result);
+    }});
+  });
+});
+</script>
 </head>
 
 <body>
 <div id="navigation">
 <ul class="right-menu">
-<li class="menuItem"><a href="addInterest.html"> Add Interest </a></li>
-<li class="menuItem"><a href="viewAllEvents.html">All Events</a></li>
-<li class="menuItem"><a href="viewMyEvents.html">My Events</a></li>
-<li class="menuItem"><a href="suggestAppToFriend.html"”>Suggest App to Friends</a></li>
-<li class="menuItem"><a href="logout.html">Logout</a></li>
+<li class="menuItem"><a class="interest" href="#"> Add Interest </a></li>
+<li class="menuItem"><a class="all-events" href="#">All Events</a></li>
+<li class="menuItem"><a class="my-events" href="#">My Events</a></li>
+<li class="menuItem"><a class="suggest" href="#" >Suggest App to Friends</a></li>
+<li class="menuItem"><a class="logout" href="#">Logout</a></li>
 </ul>
 </div>
 
