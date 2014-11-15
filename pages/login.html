@@ -76,8 +76,8 @@ body{
 }
 
 .login input[type=button]{
-	width: 260px;
-	height: 35px;
+	width: 200px;
+	height: 25px;
 	background: #fff;
 	border: 1px solid #fff;
 	cursor: pointer;
@@ -118,6 +118,12 @@ body{
 </style>
 
     <script src="js/prefixfree.min.js"></script>
+	
+ <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+  api_key: 7589duvq8gibsg
+onLoad: onLinkedInLoad
+authorize: true
+</script>
 </head>
 
 <body>
@@ -129,8 +135,13 @@ body{
 		</div>
 		<br>
 		<div class="login">
-				<input type="image" src="buttonLinkedInRet.png" name="image" width="250" height="50">
-				<p>If you do not have a linkedIn account</p>
+				<!--<input type="image" src="buttonLinkedInRet.png" name="image" width="250" height="50">
+				-->
+				<p>Click on the button below to sign in using LinkedIn</p>
+				<script type="in/Login">
+Hello, <?js= firstName ?> <?js= lastName ?>.
+</script>
+				<p>Click on the button below to sign in using your email id</p>
 				<input type="button" value="Sign Up using Email id">
 		</div>
 

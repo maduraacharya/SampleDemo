@@ -1,0 +1,57 @@
+.grid-area{
+overflow: hidden;
+ padding-top: 0px;
+    padding-bottom: 0px
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 10px
+}
+
+.box {
+
+ display: block;
+  padding: 1em;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(9,76,138,0.45) 100%);
+  color: black;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.2s, background 0.5s;
+}
+.submit {
+width:40%;
+padding-right:50px;
+
+}
+
+.outerBox {
+padding:2px;
+}
+
+.innerBox {
+width:40%;
+padding:10px;
+
+}
+
+.custom-title {
+  font-size: 1.2em;
+}
+
+.custom-body {
+color:#7b539d
+font-size: 13px;
+line-height: 17px;
+color: #666;
+font-weight: normal;
+padding-top: 5px;
+padding-bottom: 0px;
+}
+
+. image-container {
+margin-top: 0px;
+margin-bottom: 10px;
+height: 60px;
+width: 100px;
+position: relative;
+}
