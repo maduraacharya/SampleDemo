@@ -10,6 +10,11 @@ public interface HackbeeDAO {
 
 	public void addInterests(String userid,List<String> userInterests) throws DaoException;
 
+
 	public ArrayList<Event> getAllEvents();
 		
+
+	public void getSuggestions() throws DaoException;
+	
+
 }
