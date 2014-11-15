@@ -3,12 +3,14 @@ package hackbee.controllers;
 import hackbee.dao.HackBeeDAOImpl;
 import hackbee.dao.HackbeeDAO;
 import hackbee.exceptions.DaoException;
+import hackbee.scheduler.Scheduler;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,6 +29,13 @@ public class ServletController extends HttpServlet {
 
 	}
 
+	
+	public void init()
+	{
+		//every 2 hours
+		 Timer timer = new Timer(true);
+		 timer.scheduleAtFixedRate(new Scheduler(), 0,7200000);
+	}
 	public void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException, DaoException {
 

@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import hackbee.controllers.Event;
 import hackbee.exceptions.DaoException;
@@ -84,4 +86,41 @@ public class HackBeeDAOImpl extends BaseDao implements HackbeeDAO {
 	}
 	
 
+	public Map<String , List<Event>> getSuggestions() throws DaoException{
+		  
+		  Connection connection = getConnection();
+		  PreparedStatement ps = null;
+		  Map<String ,  List<Event>> map = new HashMap<String ,  List<Event>>();
+		  try {
+		    ps = connection.prepareStatement("select p.user_id, e.event_id, e.name " +
+		            " from person_type_interest p, event e, event_suggested es " +
+		            " where e.type_name = p.type_name  and e.date >= ? " +
+		            " and not exists ( select es.user_id, es.event_id "+
+		            "FROM Event_Suggested es where es.is_suggested = 1)");
+		   // ps.setDate(1, new java.sql.Date );
+		    
+		    ResultSet rs = ps.executeQuery();
+		    while (rs.next()){
+		    	if(map.containsKey(rs.getString(1))){
+		    		List<Event> events = map.get(rs.getString(1));
+		    		events.add(new Event(rs.getInt(2), "", rs.getString(3), "", ""));
+		    		map.put(rs.getString(1), events);
+		    		
+		    	}else{
+		    		List<Event> events = new ArrayList<Event>();
+		    		events.add(new Event(rs.getInt(2), "", rs.getString(3), "", ""));
+		    		map.put(rs.getString(1), events);
+		    	}
+		    }
+		    
+		    
+		   
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  }finally{
+		   closeConnection(connection);
+		   closeStatement(ps);
+		  }
+		  return map;
+	}
 }
