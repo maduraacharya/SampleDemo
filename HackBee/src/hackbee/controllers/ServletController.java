@@ -43,8 +43,7 @@ public class ServletController extends HttpServlet {
 
 		} else if (uri.endsWith("getEvents.action")) {
 
-			String userid = request.getParameter("user");
-			
+			ArrayList<Event> events = dao.getAllEvents();
 			target = "WEB-INF/jsp/addScores.jsp";
 
 		}
